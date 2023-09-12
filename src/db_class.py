@@ -5,11 +5,15 @@ import json
 class DBManager:
     """Класс для работы с платформой HeadHunter"""
 
-    def __init__(self):
-        self.conn = psycopg2.connect(host="localhost",
-                                     database="CW5_HH",
-                                     user="postgres",
-                                     password="02011999")
+    def __init__(self, _host_, _database_, _user_, _pw_):
+        self._host_ = _host_
+        self._database_ = _database_
+        self._user_ = _user_
+        self._pw_ = _pw_
+        self.conn = psycopg2.connect(host=f'{self._host_}',
+                                     database=f'{self._database_}',
+                                     user=f'{self._user_}',
+                                     password=f'{self._pw_}')
 
     def create_tables(self):
         """Создание таблиц"""

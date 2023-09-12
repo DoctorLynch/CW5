@@ -3,17 +3,12 @@ from src.db_class import DBManager
 from src.connect_to_hh import HH
 
 if __name__ == "__main__":
-    db_manager = DBManager()
+    db_manager = DBManager(input('Введите имя хоста:\n'), input('Введите название базы данных:\n'),
+                           input('Имя пользователя:\n'), input('Пароль:\n'))
     db_manager.create_tables()
 
     hh = HH()
     hh.get_json_files()
-
-    i = 1
-
-    for file in os.listdir("/Users/Катюша/CW5/src/json_filepath/"):
-        db_manager.insert_vacancies(file)
-        i += 1
 
     print()
     print(db_manager.get_companies_and_vacancies_count())
