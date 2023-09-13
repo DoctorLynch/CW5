@@ -8,7 +8,8 @@ if __name__ == "__main__":
     db_manager.create_tables()
 
     hh = HH()
-    hh.get_json_files()
+    hh.get_json_files(input('Напишите 10 id вакансий через запятую, которые вы хотите вывести:\n'),
+                      input('Напишите путь, куда вы хотите сохранить json файлы:\n'))
 
     print()
     print(db_manager.get_companies_and_vacancies_count())
