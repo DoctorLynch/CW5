@@ -158,7 +158,7 @@
         "from": 60000,
         "to": 70000,
         "currency": "RUR",
-        "gross": true
+        "gross": false
       },
       "type": {
         "id": "open",

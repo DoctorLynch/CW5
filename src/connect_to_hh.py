@@ -42,14 +42,11 @@ class HH:
             print("Ошибка при выполнении запроса:", response.status_code)
             return None
 
-    def get_json_files(self, ten_vacancies, file_path):
-        self.ten_vacancies = [ten_vacancies]
-        self.file_path = file_path
+    def get_json_files(self):
         """Сохранение файлов 10 компаний."""
-        for one_id in self.ten_vacancies:
-            with open(f'{self.file_path}{one_id}.json', 'w', encoding="utf-8") as file:
+        for one_id in [51, 80, 356, 364, 579, 947, 955, 1276, 6, 1740]:
+            with open(f'/Users/Катюша/CW5/src/json_filepath/{one_id}.json', 'w', encoding="utf-8") as file:
                 json.dump(self.get_vacancies_api(employer_id=one_id, per_page=100), file, indent=2, ensure_ascii=False)
 
-
 # hh_1 = HH()
-# hh_1.get_json_files()
+# hh_1.get_json_files('/Users/Катюша/CW5/src/json_filepath/', (51, 80, 356, 364, 579, 947, 955, 1276, 6, 1740))
