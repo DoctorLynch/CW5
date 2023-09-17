@@ -39,7 +39,7 @@ class DBManager:
     def insert_vacancies(self, file_path):
         """Заполнение таблиц с помощью файлов с вакансиями."""
 
-        with open(f'src/json_filepath/{file_path}', 'r', encoding="utf-8") as file:
+        with open(file_path, 'r', encoding="utf-8") as file:
 
             data = json.load(file)
 

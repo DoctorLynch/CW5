@@ -7,9 +7,8 @@ class HH:
 
     hh_url = "https://api.hh.ru/vacancies"
 
-    def __init__(self, filepath, ten_ip_vacancies):
-        self.filepath = filepath
-        self.ten_ip_vacancies = [ten_ip_vacancies]
+    def __init__(self):
+        self.ten_ip_vacancies = [51, 80, 356, 364, 579, 947, 955, 1276, 6, 1740]
 
     def __str__(self):
         return "hh.ru"
@@ -46,7 +45,7 @@ class HH:
     def get_json_files(self):
         """Сохранение файлов 10 компаний."""
         for one_id in self.ten_ip_vacancies:
-            with open(f'{self.filepath}{one_id}.json', 'w', encoding="utf-8") as file:
+            with open(f'{one_id}.json', 'w', encoding="utf-8") as file:
                 json.dump(self.get_vacancies_api(employer_id=one_id, per_page=100), file, indent=2, ensure_ascii=False)
 
 

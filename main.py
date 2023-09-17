@@ -6,16 +6,19 @@ if __name__ == "__main__":
     db_manager = DBManager(input('Введите имя хоста:\n'), input('Введите название базы данных:\n'),
                            input('Имя пользователя:\n'), input('Пароль:\n'))
     db_manager.create_tables()
-    filepath = input('Введите путь, куда сохранить json-файлы:\n')
-    hh = HH(filepath, [int(input('Введите 10 id вакансий:\n')), int(input()), int(input()), int(input()), int(input()),
-                       int(input()), int(input()), int(input()), int(input()), int(input())])
+    hh = HH()
     hh.get_json_files()
 
     i = 1
 
-    for file in os.listdir(filepath):
-        db_manager.insert_vacancies(file)
-        i += 1
+    for file in os.listdir(os.getcwd()):
+        if file.endswith('json'):
+            db_manager.insert_vacancies(file)
+            i += 1
+
+    # for file in os.listdir(filepath):
+    #     db_manager.insert_vacancies(file)
+    #     i += 1
 
     print()
     print(db_manager.get_companies_and_vacancies_count())
